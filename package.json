@@ -1,0 +1,26 @@
+{
+  "name": "storybook",
+  "version": "1.0.0",
+  "description": "project using google authentication",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashishcodes4/storybook.git"
+  },
+  "author": "Ashish Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashishcodes4/storybook/issues"
+  },
+  "homepage": "https://github.com/ashishcodes4/storybook#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.3.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}
