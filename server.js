@@ -7,11 +7,14 @@ const cookieparser = require('cookie-parser');
 const session = require('express-session');
 
 app.use(cookieparser());
-app.use(session({
-  secret: 'secret',
-  resave: false,
-  saveUnitialized: false
-}));
+app.use(
+  session({
+    secret: 'secret',
+    resave: false,
+    saveUnitialized: false,
+
+  })
+);
 
 //Load Models
 require('./models/User');
@@ -22,7 +25,7 @@ mongoose
   .connect(
     keys.mongoURI,
     {
-      useNewUrlParser: true
+      useNewUrlParser: true,
     }
   )
   .then(() => console.log('mongoDB connected'))
@@ -38,12 +41,22 @@ const auth = require('./routes/auth');
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', (req, res) => {
-  res.send('it works');
+//Global Variables
+app.use((req, res, next) => {
+  res.locals.user = req.user || null;
+  next();
 });
 
 //Use routes
 app.use('/auth', auth);
+
+app.get('/', (req, res) => {
+  res.send('it works');
+});
+
+app.get('/dashboard', (req, res) => {
+  res.send('logged in');
+});
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
