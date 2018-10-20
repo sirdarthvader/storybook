@@ -6,6 +6,7 @@ const passport = require('passport');
 const keys = require('./config/keys');
 const cookieparser = require('cookie-parser');
 const session = require('express-session');
+const path = require('path');
 
 app.use(cookieparser());
 app.use(
@@ -16,6 +17,9 @@ app.use(
 
   })
 );
+
+//Set Public folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Load Models
 require('./models/User');

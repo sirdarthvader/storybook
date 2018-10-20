@@ -1,15 +1,15 @@
 const express = require('express');
-const router = express.Router;
+const router = express.Router();
 
 
 //Index Route
 router.get('/', (req, res) => {
-  res.render('story/index');
+  res.render('stories/index');
 })
 
 //Add Story form
-router.get('/stories/add', (req, res) => {
-  res.render('story/add');
+router.get('/add', (req, res) => {
+  res.render('stories/add');
 })
 
 module.exports  = router;
