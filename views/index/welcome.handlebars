@@ -2,5 +2,7 @@
   Welcome to StoryBook</h1>
 
 <h3 class="flow-textt">Create your own account, write stories and choose for them to be read by the world or maybe not, I leave it up to you.</h3>
-
+{{#if user}}
+{{else}}
 <a href="/auth/google" class="btn red darken-3"><i class="fa fa-google left"></i>Login With Google</a>
+{{/if}}

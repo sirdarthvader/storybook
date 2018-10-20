@@ -1,8 +1,12 @@
-<nav class="grey darken-3">
+<nav class="darken-3">
   <div class="container">
     <div class="nav-wrapper">
       <a href="/stories" class="brand-logo center">StoryBooks</a>
+      {{!--
       <a href="#" data-activates='main-menu' class="button-collapse show-on-large">
+        <i class="fa fa-bars"></i>
+      </a> --}}
+      <a href="#" data-target="slide-out" class="sidenav-trigger">
         <i class="fa fa-bars"></i>
       </a>
       {{!-- Right Nav --}}
@@ -17,9 +21,44 @@
         {{else}}
         <li>
           <a href="/stories">
-            <i class="fa fa-books"></i>Public Stories</a>
+            <i class="fa fa-book left"></i>Public Stories</a>
         </li>
         {{/if}}
+      </ul>
+      {{!-- Right Nav --}}
+      <ul id="slide-out" class="sidenav">
+        <li>
+          <div class="user-view">
+            <div class="background">
+              <img src="images/office.jpg">
+            </div>
+            <a href="#user">
+              <img class="circle" src="images/yuna.jpg">
+            </a>
+            <a href="#name">
+              <span class="white-text name">John Doe</span>
+            </a>
+            <a href="#email">
+              <span class="white-text email">jdandturk@gmail.com</span>
+            </a>
+          </div>
+        </li>
+        <li>
+          <a href="#!">
+            <i class="material-icons">cloud</i>First Link With Icon</a>
+        </li>
+        <li>
+          <a href="#!">Second Link</a>
+        </li>
+        <li>
+          <div class="divider"></div>
+        </li>
+        <li>
+          <a class="subheader">Subheader</a>
+        </li>
+        <li>
+          <a class="waves-effect" href="#!">Third Link With Waves</a>
+        </li>
       </ul>
     </div>
   </div>
