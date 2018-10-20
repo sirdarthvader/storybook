@@ -45,6 +45,7 @@ app.set('view engine', 'handlebars');
 //Load routes
 const auth = require('./routes/auth');
 const index = require('./routes/index');
+const stories = require('./routes/stories');
 
 //Passport Middleware
 app.use(passport.initialize());
@@ -57,8 +58,9 @@ app.use((req, res, next) => {
 });
 
 //Use routes
-app.use('/auth', auth);
 app.use('/', index);
+app.use('/auth', auth);
+app.use('/stories', stories);
 
 app.get('/dashboard', (req, res) => {
   res.send('logged in');
