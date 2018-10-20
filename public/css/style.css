@@ -6,5 +6,12 @@ body {
 
 main {
   flex: 1 0 auto;
-  margin-bottom: 1em;
+}
+
+.nav-wrapper fa-bars {
+  font-size: 25px;
+}
+
+footer {
+  margin-top: 1rem;
 }
