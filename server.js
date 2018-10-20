@@ -7,6 +7,7 @@ const keys = require('./config/keys');
 const cookieparser = require('cookie-parser');
 const session = require('express-session');
 const path = require('path');
+const bodyParser = require('body-parser');
 
 app.use(cookieparser());
 app.use(
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Load Models
 require('./models/User');
+require('./models/Story');
 
 //Connect to mongoose
 mongoose.Promise = global.Promise;
@@ -40,11 +42,14 @@ mongoose
 require('./config/passport')(passport);
 
 //Handlebars Middleware 
-
 app.engine('handlebars', exphbs({
   defaultLayout: 'main'
 }))
 app.set('view engine', 'handlebars');
+
+//BodyParser Middleware
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 //Load routes
 const auth = require('./routes/auth');

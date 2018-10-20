@@ -38,4 +38,4 @@ const StorySchema = new Schema({
  }
 })
 
-mongoose.model('stories', UserSchema, 'stories');
+mongoose.model('stories', StorySchema, 'stories');
