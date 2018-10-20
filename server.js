@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const exphbs = require('express-handlebars');
 const passport = require('passport');
 const keys = require('./config/keys');
 const cookieparser = require('cookie-parser');
@@ -34,8 +35,16 @@ mongoose
 //Passport config
 require('./config/passport')(passport);
 
+//Handlebars Middleware 
+
+app.engine('handlebars', exphbs({
+  defaultLayout: 'main'
+}))
+app.set('view engine', 'handlebars');
+
 //Load routes
 const auth = require('./routes/auth');
+const index = require('./routes/index');
 
 //Passport Middleware
 app.use(passport.initialize());
@@ -49,10 +58,7 @@ app.use((req, res, next) => {
 
 //Use routes
 app.use('/auth', auth);
-
-app.get('/', (req, res) => {
-  res.send('it works');
-});
+app.use('/', index);
 
 app.get('/dashboard', (req, res) => {
   res.send('logged in');
