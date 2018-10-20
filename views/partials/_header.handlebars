@@ -28,12 +28,13 @@
       {{!-- Right Nav --}}
       <ul id="slide-out" class="sidenav">
         <li>
+          <li><a href="/stories"><i class="fa fa-book"></i>Public Stories</a></li>
+          <li class="divider"></li>
           {{#if user}}
           <li><a href="/dashboard"><i class="fa fa-cog"></i>Dashboard</a></li>
           <li><a href="/stories/my"><i class="fa fa-book"></i>My Stories</a></li>
           <li><a href="/auth/logout"><i class="fa fa-sign-out"></i>Logut</a></li>
           {{else}}
-          <li><a href="/stories"><i class="fa fa-book"></i>Public Stories</a></li>
           <li><a href="/auth/google" class=""><i class="fa fa-google"></i>Login</a></li>
           {{/if}}
         </li>
