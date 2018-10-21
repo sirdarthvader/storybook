@@ -14,7 +14,7 @@
       <div class="card-content">
         <span class="card-title">Comments</span>
         {{#if user}}
-          <form action="/stories/comment/{{story.id}}">
+          <form action="/stories/comment/{{story.id}}" method="POST">
           <div class="input-filed">
             <textarea name="commentBody" class="materialize-textarea" ></textarea>
             <label>Add your comment</label>
@@ -27,7 +27,21 @@
         {{/if}}
       </div>
     </div>
+    {{#each story.comments}}
+      <div class="card">
+        <div class="card-content">
+          <h5>{{commentBody}}</h5>
+          <div class="chip">
+            <img src="{{commentUser.image}}" alt="avatar">
+            {{commentUser.firstName}}
+          </div>
+          <br>
+          <small>Posted: {{formatDate commentDate 'MMMM Do YYYY'}}</small>
+        </div>
+      </div>
+    {{/each}}
     {{/if}}
+
   </div>
   <div class="col s12 m4">
     <div class="card center-align">
