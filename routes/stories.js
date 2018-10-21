@@ -51,13 +51,19 @@ router.post('/', ensureAuthenticated, (req, res) => {
 
 //Show Single Story
 router.get('/show/:id', (req, res) => {
-  Story.find()
-  .then(story => {
-    res.render('stories/show');
+  const id = req.params.id;
+  Story.findOne({
+    _id: id,
   })
-  .catch(err => {
-    console.log(err)
-  })
-})
+    .populate('user')
+    .then(story => {
+      res.render('stories/show', {
+        story: story,
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
 
 module.exports = router;
