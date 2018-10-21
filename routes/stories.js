@@ -8,7 +8,13 @@ const { ensureAuthenticated, ensureGuest } = require('../helpers/auth');
 
 //Index Route
 router.get('/', (req, res) => {
-  res.render('stories/index');
+  Story.find({status: 'public'})
+  .populate('user')
+  .then(stories => {
+    res.render('stories/index', {
+      stories: stories
+    });
+  })
 })
 
 //Add Story form
@@ -24,6 +30,7 @@ router.post('/', ensureAuthenticated, (req, res) => {
   } else {
     allowComments = false
   } 
+  console.log(req.body.status);
   //Create story object
   const newStory = {
     title: req.body.title,
