@@ -66,4 +66,19 @@ router.get('/show/:id', (req, res) => {
     });
 });
 
+router.get('/edit/:id', (req, res) => {
+  const id = req.params.id;
+  Story.findOne({
+    _id: id,
+  })
+    .then(story => {
+      res.render('stories/edit', {
+        story: story,
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+})
+
 module.exports = router;

@@ -19,3 +19,10 @@ footer {
 .story-text {
   height: 100px;
 }
+
+.dash-status {
+  text-transform: capitalize;
+}
+.delete-form {
+  display: inline;
+}
