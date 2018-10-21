@@ -1,3 +1,8 @@
 <h1>Welcome {{user.firstName}}</h1>
-<p>Your stories...</p>
-<a href="/stories" class="btn">Stories</a>
+<h4>Your stories...</h4>
+
+{{#if stories}} 
+
+{{else}}
+<p>You do not have any stories for now, go ahead and create one...</p>
+{{/if}}

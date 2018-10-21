@@ -44,14 +44,16 @@ require('./config/passport')(passport);
 //Handlebar helpers
 const {
   truncated,
-  stripTags
+  stripTags,
+  formatDate
 } = require('./helpers/hbs')
 
 //Handlebars Middleware 
 app.engine('handlebars', exphbs({
   helpers: {
     truncated: truncated,
-    stripTags: stripTags
+    stripTags: stripTags,
+    formatDate: formatDate
   },
   defaultLayout: 'main'
 }))
