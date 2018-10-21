@@ -10,6 +10,8 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 
+
+//Cookie parser and Session Middleware 
 app.use(cookieparser());
 app.use(
   session({

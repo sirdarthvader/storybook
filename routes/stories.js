@@ -119,6 +119,35 @@ router.delete('/:id', (req, res) => {
   .then(() => {
     res.redirect('/dashboard');
   })
+  .catch(err => {
+    console.error(err);
+  })
+})
+
+//Add a comment 
+router.post('/comment/:id', (req, res)=> {
+  Story.findOne({
+    _id: req.params.id
+  })
+  .then(stroy => {
+    const newComment = {
+      commentBody: req.body.commentBody,
+      commentUser: req.user.id
+    }
+    stroy.comments.unshift(newComment);
+    stroy.save()
+    .then(stroy => {
+      res.redirect(`/stories/show/${story.id}`)
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  })
+  .catch(err => {
+    console.log(err => {
+      console.log(err);
+    })
+  })
 })
 
 
