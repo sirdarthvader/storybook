@@ -41,8 +41,18 @@ mongoose
 //Passport config
 require('./config/passport')(passport);
 
+//Handlebar helpers
+const {
+  truncated,
+  stripTags
+} = require('./helpers/hbs')
+
 //Handlebars Middleware 
 app.engine('handlebars', exphbs({
+  helpers: {
+    truncated: truncated,
+    stripTags: stripTags
+  },
   defaultLayout: 'main'
 }))
 app.set('view engine', 'handlebars');
