@@ -8,6 +8,7 @@ const cookieparser = require('cookie-parser');
 const session = require('express-session');
 const path = require('path');
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 
 app.use(cookieparser());
 app.use(
@@ -64,6 +65,9 @@ app.set('view engine', 'handlebars');
 //BodyParser Middleware
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+
+//Method override
+app.use(methodOverride('_method'));
 
 //Load routes
 const auth = require('./routes/auth');
