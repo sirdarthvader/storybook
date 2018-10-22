@@ -49,7 +49,8 @@ const {
   truncated,
   stripTags,
   formatDate,
-  select
+  select,
+  editIcon
 } = require('./helpers/hbs')
 
 //Handlebars Middleware 
@@ -58,7 +59,8 @@ app.engine('handlebars', exphbs({
     truncated: truncated,
     stripTags: stripTags,
     formatDate: formatDate,
-    select: select
+    select: select,
+    editIcon: editIcon
   },
   defaultLayout: 'main'
 }))

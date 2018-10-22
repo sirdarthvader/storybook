@@ -74,9 +74,13 @@ router.get('/edit/:id', (req, res) => {
     _id: id,
   })
     .then(story => {
-      res.render('stories/edit', {
-        story: story,
-      });
+      if(story.user != req.user.id) {
+        res.redirect('/stories');
+      } else {
+        res.render('stories/edit', {
+          story: story,
+        });
+      }
     })
     .catch(err => {
       console.log(err);
@@ -149,6 +153,28 @@ router.post('/comment/:id', (req, res)=> {
   })
 })
 
+
+//List story from a single user
+router.get('/user/:userId', (req, res) => {
+  Story.find({user: req.params.userId, status: 'public'})
+  .populate('user')
+  .then(stories => {
+    res.render('stories/index', {
+      stories: stories
+    });
+  })
+})
+
+//Show story from a loggedIN user
+router.get('/my', (req, res) => {
+  Story.find({user: req.user.id,})
+  .populate('user')
+  .then(stories => {
+    res.render('stories/index', {
+      stories: stories
+    });
+  })
+})
 
 
 module.exports = router;
