@@ -7,12 +7,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>StoryBook</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-    crossorigin="anonymous">
-
-  <link rel="stylesheet" href="/css/style.css"
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" 
 </head>
-
 <body>
   {{> _header}}
   <main>
@@ -34,10 +33,11 @@
     $(document).ready(function () {
       $('.sidenav').sidenav();
       $('select').formSelect();
+      $('.fixed-action-btn').floatingActionButton();
     });
 
     CKEDITOR.replace('body');
   </script>
-</body>
+  </body>
 
 </html>
